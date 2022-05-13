@@ -3,8 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>OSM Business Card</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+    function gup (name) {
+        name = RegExp ('[?&]' + name.replace (/([[\]])/, '\\$1') + '=([^&#]*)');
+        return (window.location.href.match (name) || ['', ''])[1];
+    }
+
+    function buildCard (data) {
+        // TODO: test for empty tags
+        console.log(data.tags);
+        tags = data.tags;
+        console.log(data.type);
+        console.log(data.id);
+
+
+        $('#name').html(tags.name);
+
+        // Address
+        if ('addr:full' in tags) {
+            $('#address').html(tags["addr:full"]);
+        }
+        else {
+            addr = tags['addr:housenumber'] + '&nbsp;' + tags['addr:street'] + ',&nbsp;' + tags['addr:city'] + ',&nbsp;' + tags['addr:state'] + '&nbsp;' + tags['addr:postcode'];
+            $('#address').html(addr);
+        }
+
+    }
+    </script>
 </head>
 <body>
+    <div id="card">
+        <h1 id="name">Business Name</h1>
+        <div id="contact"></div>
+        <p id="address"></p>
+    </div>
+    <script>
+    type = gup('type'); // TODO: combine these into one param
+    id = gup('id');
 
+    query = "[out:json][timeout:10];";
+
+    if (type === 'n') {
+        query = query + 'node(' + id + ');'
+    }
+    else if (type === 'w') {
+        query = query + 'way(' + id + ');'
+    }
+    else if (type === 'r') {
+        query = query + 'rel(' + id + ');'
+    }
+    else {
+        throw new Error('Unknown type given.')
+    }
+
+    query += 'out tags;';
+
+    $.getJSON('https://z.overpass-api.de/api/interpreter?data=' + query, function(data) {
+        buildCard(data.elements[0]);
+    });
+    </script>
 </body>
 </html>
