@@ -1,11 +1,38 @@
+html, body, #map {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    position: absolute;
+}
+
 #card {
-    // TODO
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    min-width: 100px;
+    padding: 4px 16px 6px 4px;
+    border: black 2px solid;
+    font-family: Roboto, Arial, sans-serif;
 }
 
 #name {
-    // TODO
+    font-size: 1.1vw;
+    margin: 2px 0 2px 0;
+}
+
+#address {
+    font-size: 0.8vw;
+    margin: 2px 0 4px 0;
+}
+
+#contact {
+    font-size: small;
 }
 
 #contact i {
-    // TODO
+    font-size: medium;
+    padding: 1px 2px 0 0;
 }

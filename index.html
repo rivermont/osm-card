@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>OSM Business Card</title>
     <link rel="stylesheet" href="main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
@@ -15,10 +16,11 @@
     <script src="card.js"></script>
 </head>
 <body>
+    <div id="map"></div>
     <div id="card">
-        <h1 id="name">Business Name</h1>
-        <div id="contact"></div>
+        <h2 id="name">Business Name</h2>
         <p id="address"></p>
+        <div id="contact"></div>
     </div>
     <script>
     type = gup('type'); // TODO: combine these into one param
