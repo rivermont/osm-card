@@ -10,21 +10,25 @@ html, body, #map {
 
 #card {
     position: absolute;
+    z-index: 800;
     top: 20px;
     left: 20px;
-    min-width: 100px;
+    min-width: 12vw;
+    min-height: 6vh;
     padding: 4px 16px 6px 4px;
-    border: black 2px solid;
+    background: #fffdf8;
+    box-shadow: rgb(0 0 0 / 30%) 0 1px 4px -1px;
+    border-radius: 2px;
     font-family: Roboto, Arial, sans-serif;
 }
 
 #name {
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     margin: 2px 0 2px 0;
 }
 
 #address {
-    font-size: 0.8vw;
+    font-size: 1vw;
     margin: 2px 0 4px 0;
 }
 

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!-- Contribute to the OSM Card on GitHub: https://github.com/rivermont/osm-card -->
 <html lang="en_US">
 <head>
     <meta charset="UTF-8">
     <title>OSM Business Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300" rel="stylesheet" />
     <link rel="stylesheet" href="main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
     function gup (name) {
@@ -18,11 +21,13 @@
 <body>
     <div id="map"></div>
     <div id="card">
-        <h2 id="name">Business Name</h2>
+        <h2 id="name"></h2>
         <p id="address"></p>
         <div id="contact"></div>
     </div>
+    <script src="map.js"></script>
     <script>
+    // Form Overpass query from url parameters
     type = gup('type'); // TODO: combine these into one param
     id = gup('id');
 
@@ -38,13 +43,16 @@
         query = query + 'rel(' + id + ');'
     }
     else {
-        throw new Error('Unknown type given.')
+        throw new Error('Unknown object type given.')
     }
 
-    query += 'out tags;';
+    query += 'out;';
 
+    // get response from Overpass
     $.getJSON('https://z.overpass-api.de/api/interpreter?data=' + query, function(data) {
+        console.log(data);
         buildCard(data.elements[0]);
+        updateMap(data.elements[0]);
     });
     </script>
 </body>

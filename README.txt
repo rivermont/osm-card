@@ -1,15 +1,26 @@
 # OSM Business Card
-Generate an embeddable 'business card' from an OSM object id.
+Generates an embeddable map that displays business info from an OSM object id.
+Loads object type (n/w/r) and id from url parameters type= and id=.
+Uses Leaflet, FontAwesome, JQuery, and Roboto font by Google.
 
-Optional locality map on either side of card, or a link to open the area on the map.
+For example, see index.html?type=n&id=299508059
 
-Properties:
- - Name
- - Address
- - website, email, phone, fax
- - Facebook, LinkedIn, Instagram, Yelp, &c.
- - Payments accepted or not accepted
- - Brand data if any (pull Wikimedia Commons logo of brand?)
- - Opening hours (need parser)
- - How much map area to display
- - Mapillary links of storefront
+Properties shown:
+- Name
+- Street address
+- Website
+- Phone
+- Fax
+- Email
+- Facebook
+- Instagram
+- Twitter
+- Pinterest
+- Yelp
+- YouTube
+
+Future improvements:
+- Opening hours (need parser)
+- Payments accepted or not accepted
+- Display brand data if any (pull Wikimedia Commons logo of brand?)
+- Mapillary embed of storefront?
