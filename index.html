@@ -46,7 +46,7 @@
         throw new Error('Unknown object type given.')
     }
 
-    query += 'out;';
+    query += 'out center;';
 
     // get response from Overpass
     $.getJSON('https://z.overpass-api.de/api/interpreter?data=' + query, function(data) {

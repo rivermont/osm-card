@@ -107,5 +107,4 @@ function buildCard (data) {
         addr = tags['addr:housenumber'] + '&nbsp;' + tags['addr:street'] + ',&nbsp;' + tags['addr:city'] + ',&nbsp;' + tags['addr:state'] + '&nbsp;' + tags['addr:postcode'];
         $('#address').html(addr);
     }
-
 }

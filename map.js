@@ -20,14 +20,12 @@ L.control.scale({position: 'bottomleft'}).addTo(map);
 function updateMap (data) {
     if (data.type == 'node') {
         ll = new L.LatLng(data.lat, data.lon);
-        map.setView(ll);
-        L.marker(ll).addTo(map);
     }
-    else if (data.type == 'way') {
-        // TODO pick a node, get it from Overpass, set map view
+    else {
+        ll = new L.LatLng(data.center.lat, data.center.lon);
     }
-    else if (data.type == 'relation') {
-        // TODO pick a member, fetch, pick a node, fetch, set map view
-    }
+    map.setView(ll);
+    L.marker(ll).addTo(map);
+
     // TODO: add link in layer attribution to https://www.openstreetmap.org/note/new#map=18/lat/lon
 }
