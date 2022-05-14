@@ -27,25 +27,23 @@
     <script src="map.js"></script>
     <script>
     // Form Overpass query from url parameters
-    type = gup('type'); // TODO: combine these into one param
+    type = gup('type'); // TODO: combine these into one param?
     id = gup('id');
 
     query = "[out:json][timeout:10];";
 
     if (type == 'n') {
-        query = query + 'node(' + id + ');'
+        query = query + 'node(' + id + ');out;'
     }
     else if (type == 'w') {
-        query = query + 'way(' + id + ');'
+        query = query + 'way(' + id + ');out center;'
     }
     else if (type == 'r') {
-        query = query + 'rel(' + id + ');'
+        query = query + 'rel(' + id + ');out center;'
     }
     else {
         throw new Error('Unknown object type given.')
     }
-
-    query += 'out center;';
 
     // get response from Overpass
     $.getJSON('https://z.overpass-api.de/api/interpreter?data=' + query, function(data) {

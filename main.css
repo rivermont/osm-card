@@ -15,7 +15,7 @@ html, body, #map {
     left: 20px;
     min-width: 12vw;
     min-height: 6vh;
-    padding: 4px 16px 6px 4px;
+    padding: 6px 16px 8px 8px;
     background: #fffdf8;
     box-shadow: rgb(0 0 0 / 30%) 0 1px 4px -1px;
     border-radius: 2px;
@@ -23,12 +23,12 @@ html, body, #map {
 }
 
 #name {
-    font-size: 1.3vw;
+    font-size: 2vw;
     margin: 2px 0 2px 0;
 }
 
 #address {
-    font-size: 1vw;
+    font-size: 1.5vw;
     margin: 2px 0 4px 0;
 }
 

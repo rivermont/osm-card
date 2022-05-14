@@ -1,8 +1,4 @@
 function buildCard (data) {
-    // console.log(data.tags);
-    // console.log(data.type);
-    // console.log(data.id);
-
     // TODO: test for empty tags
     tags = data.tags;
 
@@ -87,7 +83,7 @@ function buildCard (data) {
     }
 
     // youtube
-    // TODO: breaks for values that aren't URLs
+    // TODO: this breaks for values that aren't URLs
     if ('contact:youtube' in tags) {
         contact.push('<i class="fa fa-youtube-play"></i> <a href="' + tags['contact:youtube'] + '">YouTube</a>');
     }
@@ -97,13 +93,14 @@ function buildCard (data) {
 
     $('#contact').html(contact.join('<br>'));
 
-    // TODO opening hours (requires parsing function)
+    // TODO: opening hours (requires parsing function)
 
     // Address
     if ('addr:full' in tags) {
         $('#address').html(tags["addr:full"]);
     }
-    else {
+    else if ('addr:housenumber' || 'addr:street' in tags) {
+        // TODO: handle addresses with missing bits
         addr = tags['addr:housenumber'] + '&nbsp;' + tags['addr:street'] + ',&nbsp;' + tags['addr:city'] + ',&nbsp;' + tags['addr:state'] + '&nbsp;' + tags['addr:postcode'];
         $('#address').html(addr);
     }
