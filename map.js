@@ -27,5 +27,7 @@ function updateMap (data) {
     map.setView(ll);
     L.marker(ll).addTo(map);
 
-    // TODO: add link in layer attribution to https://www.openstreetmap.org/note/new#map=18/lat/lon
+    map.attributionControl._attributions = {};
+    map.attributionControl.addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | ' +
+    '<a href="https://www.openstreetmap.org/note/new#map=18/' + data.lat + '/' + data.lon + '" target="_blank">Report a map error</a>')
 }

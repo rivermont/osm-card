@@ -12,10 +12,10 @@ function buildCard (data) {
     // website
     // TODO: strip url to domain for display
     if ('contact:website' in tags ) {
-        contact.push('<i class="fa fa-globe"></i> <a href="' + tags['contact:website'] + '">website</a>');
+        contact.push('<i class="fa fa-globe"></i> <a href="' + tags['contact:website'] + '" target="_blank">website</a>');
     }
     else if ('website' in tags ) {
-        contact.push('<i class="fa fa-globe"></i> <a href="' + tags['website'] + '">website</a>');
+        contact.push('<i class="fa fa-globe"></i> <a href="' + tags['website'] + '" target="_blank">website</a>');
     }
 
     // phone
@@ -44,51 +44,51 @@ function buildCard (data) {
 
     // facebook
     if ('contact:facebook' in tags) {
-        contact.push('<i class="fa fa-facebook-square"></i> <a href="https://www.facebook.com/' + tags['contact:facebook'] + '">' + tags['contact:facebook'] + '</a>');
+        contact.push('<i class="fa fa-facebook-square"></i> <a href="https://www.facebook.com/' + tags['contact:facebook'] + '" target="_blank">' + tags['contact:facebook'] + '</a>');
     }
     else if ('facebook' in tags) {
-        contact.push('<i class="fa fa-facebook-square"></i> <a href="https://www.facebook.com/' + tags['facebook'] + '">' + tags['facebook'] + '</a>');
+        contact.push('<i class="fa fa-facebook-square"></i> <a href="https://www.facebook.com/' + tags['facebook'] + '" target="_blank">' + tags['facebook'] + '</a>');
     }
 
     // instagram
     if ('contact:instagram' in tags) {
-        contact.push('<i class="fa fa-instagram"></i> <a href="https://www.instagram.com/' + tags['contact:instagram'] + '">' + tags['contact:instagram'] + '</a>');
+        contact.push('<i class="fa fa-instagram"></i> <a href="https://www.instagram.com/' + tags['contact:instagram'] + '" target="_blank">' + tags['contact:instagram'] + '</a>');
     }
     else if ('instagram' in tags) {
-        contact.push('<i class="fa fa-instagram"></i> <a href="https://www.instagram.com/' + tags['instagram'] + '">' + tags['instagram'] + '</a>');
+        contact.push('<i class="fa fa-instagram"></i> <a href="https://www.instagram.com/' + tags['instagram'] + '" target="_blank">' + tags['instagram'] + '</a>');
     }
 
     // twitter
     if ('contact:twitter' in tags) {
-        contact.push('<i class="fa fa-twitter"></i> <a href="https://www.twitter.com/' + tags['contact:twitter'] + '">' + tags['contact:twitter'] + '</a>');
+        contact.push('<i class="fa fa-twitter"></i> <a href="https://www.twitter.com/' + tags['contact:twitter'] + '" target="_blank">' + tags['contact:twitter'] + '</a>');
     }
     else if ('twitter' in tags) {
-        contact.push('<i class="fa fa-twitter"></i> <a href="https://www.twitter.com/' + tags['twitter'] + '">' + tags['twitter'] + '</a>');
+        contact.push('<i class="fa fa-twitter"></i> <a href="https://www.twitter.com/' + tags['twitter'] + '" target="_blank">' + tags['twitter'] + '</a>');
     }
 
     // pinterest
     if ('contact:pinterest' in tags) {
-        contact.push('<i class="fa fa-pinterest"></i> <a href="https://www.pinterest.com/' + tags['contact:pinterest'] + '">' + tags['contact:pinterest'] + '</a>');
+        contact.push('<i class="fa fa-pinterest"></i> <a href="https://www.pinterest.com/' + tags['contact:pinterest'] + '" target="_blank">' + tags['contact:pinterest'] + '</a>');
     }
     else if ('pinterest' in tags) {
-        contact.push('<i class="fa fa-pinterest"></i> <a href="https://www.pinterest.com/' + tags['pinterest'] + '">' + tags['pinterest'] + '</a>');
+        contact.push('<i class="fa fa-pinterest"></i> <a href="https://www.pinterest.com/' + tags['pinterest'] + '" target="_blank">' + tags['pinterest'] + '</a>');
     }
 
     // yelp
     if ('contact:yelp' in tags) {
-        contact.push('<i class="fa fa-yelp"></i> <a href="https://www.yelp.com/biz/' + tags['contact:yelp'] + '">' + tags['contact:yelp'] + '</a>');
+        contact.push('<i class="fa fa-yelp"></i> <a href="https://www.yelp.com/biz/' + tags['contact:yelp'] + '" target="_blank">' + tags['contact:yelp'] + '</a>');
     }
     else if ('yelp' in tags) {
-        contact.push('<i class="fa fa-yelp"></i> <a href="https://www.yelp.com/biz/' + tags['yelp'] + '">' + tags['yelp'] + '</a>');
+        contact.push('<i class="fa fa-yelp"></i> <a href="https://www.yelp.com/biz/' + tags['yelp'] + '" target="_blank">' + tags['yelp'] + '</a>');
     }
 
     // youtube
     // TODO: this breaks for values that aren't URLs
     if ('contact:youtube' in tags) {
-        contact.push('<i class="fa fa-youtube-play"></i> <a href="' + tags['contact:youtube'] + '">YouTube</a>');
+        contact.push('<i class="fa fa-youtube-play"></i> <a href="' + tags['contact:youtube'] + '" target="_blank">YouTube</a>');
     }
     else if ('youtube' in tags) {
-        contact.push('<i class="fa fa-youtube-play"></i> <a href="' + tags['youtube'] + '">YouTube</a>');
+        contact.push('<i class="fa fa-youtube-play"></i> <a href="' + tags['youtube'] + '" target="_blank">YouTube</a>');
     }
 
     $('#contact').html(contact.join('<br>'));
