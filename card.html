@@ -47,7 +47,7 @@
     }
 
     // get response from Overpass
-    $.getJSON('https://z.overpass-api.de/api/interpreter?data=' + query, function(data) {
+    $.getJSON('https://overpass-api.de/api/interpreter?data=' + query, function(data) {
         console.log(data);
         buildCard(data.elements[0]);
         updateMap(data.elements[0]);
