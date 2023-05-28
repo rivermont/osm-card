@@ -99,9 +99,21 @@ function buildCard (data) {
     if ('addr:full' in tags) {
         $('#address').html(tags["addr:full"]);
     }
-    else if ('addr:housenumber' || 'addr:street' in tags) {
-        // TODO: handle addresses with missing bits
-        addr = tags['addr:housenumber'] + '&nbsp;' + tags['addr:street'] + ',&nbsp;' + tags['addr:city'] + ',&nbsp;' + tags['addr:state'] + '&nbsp;' + tags['addr:postcode'];
+    else if ('addr:street' in tags) {
+        addr = '';
+        if ('addr:housenumber' in tags) {
+            addr += tags['addr:housenumber'] + '&nbsp;';
+        }
+        addr += tags['addr:street'];
+        if ('addr:city' in tags) {
+            addr += ',&nbsp;' + tags['addr:city'];
+        }
+        if ('addr:state' in tags) {
+            addr += ',&nbsp;' + tags['addr:state'];
+        }
+        if ('addr:postcode' in tags) {
+            addr += '&nbsp;' + tags['addr:postcode'];
+        }
         $('#address').html(addr);
     }
 }
