@@ -44,7 +44,13 @@ function buildCard (data) {
 
     // facebook
     if ('contact:facebook' in tags) {
-        contact.push('<i class="fa fa-facebook-square"></i> <a href="https://www.facebook.com/' + tags['contact:facebook'] + '" target="_blank">' + tags['contact:facebook'] + '</a>');
+        // if first 4 chars are http
+        if (tags['contact:facebook'].slice(0,4) == 'http') {
+            contact.push('<i class="fa fa-facebook-square"></i> <a href="' + tags['contact:facebook'] + '" target="_blank">' + tags['contact:facebook'].slice(24,-1) + '</a>');
+        }
+        else {
+            contact.push('<i class="fa fa-facebook-square"></i> <a href="https://www.facebook.com/' + tags['contact:facebook'] + '" target="_blank">' + tags['contact:facebook'] + '</a>');
+        }
     }
     else if ('facebook' in tags) {
         contact.push('<i class="fa fa-facebook-square"></i> <a href="https://www.facebook.com/' + tags['facebook'] + '" target="_blank">' + tags['facebook'] + '</a>');
